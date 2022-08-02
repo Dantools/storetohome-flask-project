@@ -1,0 +1,270 @@
+<html>
+<head>
+  <link rel="icon" href="/static/images/storetohome.png">
+<title>STORE TO HOME </title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 1%;
+  text-align: center;
+  background: #ffcc00;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  display: flex;
+  background-color: #0a0a0a;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  
+  color: #ffcc00;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ffcc00;
+  color: black;
+}
+.active {
+  background-color: #967902;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 50px;
+  background: #f1f1f1;
+}
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 0%;
+  padding-left: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  
+  padding: 30px;
+  margin-top: 30px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 85%;
+  }
+
+#customers td, #customers th {
+  border: 3px solid #ddd;
+  padding: 5px;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+p.round2 {
+  border: 5px ridge #4a4a00; 
+  border-radius: 8px;
+  padding: 8px;
+  
+}
+
+.centered {
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 100px;
+
+}
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .row, .navbar, .leftcolumn, .rightcolumn {   
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body style="background-color:#cf9904;">
+ <!-- Header -->
+ <div class="header">
+ <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+  <h2 style="color:black;">STORE TO HOME </h2>
+ </div>
+ <div class="navbar">
+  <a href="/">ΑΡΧΙΚΗ</a>
+  <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+  <a href="/FAQ">FAQ</a>
+  <a href="/team" >ABOUT US</a>
+  <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+  <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+</div>
+
+<h4 style="margin-top: 75px;"><center>ΣΥΝΟΛΙΚΟ ΚΕΡΔΟΣ ΕΠΙΧΕΙΡΗΣΗΣ ΜΕΧΡΙ ΣΗΜΕΡΑ <b>{{total}}</b> €</center></h4>
+<hr>
+<h4><center>ΣΥΜΦΩΝΙΕΣ ΕΤΑΙΡΙΑΣ</center> </h4>
+
+{% for deal in deals %}
+{% for aggelia in aggelies %}
+{% if aggelia.code == deal.code %}
+  
+  
+<div class="centered">
+<table id="customers">
+
+  <tr>
+    <td>Νούμερο αγγελίας</td>
+    <td><b>{{deal.code}}</b></td>
+  </tr>
+  <tr>
+    <td>Τίτλος Αγγελίας	</td>
+    <td>{{aggelia.title}}</td>
+  </tr>
+  <tr>
+    <td>Περιοχή	</td>
+    <td>{{aggelia.region}}</td>
+  </tr>
+  <tr>
+    <td>Διεύθυνση </td>
+    <td>{{aggelia.address}}</td>
+  </tr>
+  <tr>
+    <td>Κατηγορία</td>
+    <td>{{aggelia.category}}</td>
+  </tr>
+  <tr>
+    <td>Όροφος</td>	
+	<td>{{aggelia.floor}}</td>
+	</tr>
+  <tr>
+    <td>Τιμή ανά τ.μ.</td>	
+    <td>{{aggelia.tmprice}} €</td>
+  </tr>
+  <tr>
+    <td>Εμβαδόν	</td>
+    <td> {{aggelia.emvado}} τ.μ.</td>
+  </tr>
+  <tr>
+    <td>ΠΩΛΗΤΗΣ</td>	
+    <td>{{aggelia.seller_firstname}} {{aggelia.seller_lastname}}</td>
+  </tr>
+  <tr>
+    <td>Τηλέφωνο Πωλητή</td>
+    <td>{{aggelia.seller_number}}</td>
+  </tr>
+
+  <tr>
+    <td>ΑΓΟΡΑΣΤΗΣ</td>
+    <td>{{deal.buyer_firstname}} {{deal.buyer_lastname}}</td>
+  </tr>
+  <tr>
+    <td>Τηλέφωνο Αγοραστή</td>
+    <td>{{deal.buyer_number}}</td>
+  </tr>
+  <tr>
+    <td>ΗΜΕΡΟΜΗΝΙΑ ΠΩΛΗΣΗΣ</td>
+	<td>{{deal.datetime}}</td>
+  </tr>
+ </table>
+
+ <table id="customers">
+  <tr>
+    <td>Μεσίτης</td>
+    <td>{{deal.deal_mesiti}} €</td>
+  </tr>
+  <tr>
+    <td>Μηχανικος</td>
+    <td>{{deal.deal_mhxanikou}} €</td>
+  </tr>
+  <tr>
+    <td>Διακοσμητής</td>
+    <td>{{deal.deal_diakosmiti}} €</td>
+  </tr>
+  <tr>
+    <td>Εργολάβος</td>
+    <td>{{deal.deal_ergolavou}} €</td>
+  </tr>
+  <tr>
+    <td>Κόστος Επαγγελματιών </td>
+    <td>{{deal.partner_sum}} €</td>
+  </tr>
+  <tr>
+    <td>Κόστος Πώλησης</td>
+    <td>{{deal.sell_cost}} €</td>
+  </tr>
+  <tr>
+    <td>Κέρδη επιχειρησης</td>
+    <td>{{deal.bprofit}} €</td>
+  </tr>
+
+
+ </table>
+
+ </div>
+
+  
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+</body>
+</html>

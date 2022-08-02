@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/static/images/storetohome.png">
+  <link rel="stylesheet" href="{{url_for('static', filename='desmeush.css')}}"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <title>StoreToHome</title>
+</head>
+<body style="background-color:#cf9904;">
+  <nav class="desmeush"><p> Δέσμευση 10ετίας για μηδενικό κόστος καταχώρησης ακινήτων </p></nav>
+
+    <!-- Header -->
+    <div class="header">
+     <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+     {% if current_user.is_authenticated %}
+    <div class="home">
+      
+      <div class="btn-group">
+          <button type="button" class="btn"><a href="/myAccount"><ion-icon name="home" id = "io"></ion-icon></a></button>
+          <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="/userads">Οι αγγελίες μου</a></li>
+          <li><a href="/notifications">Ειδοποιήσεις</a></li>
+          <li><a href="/cal">Ραντεβού</a></li>
+          <li><a href="/logout">Αποσύνδεση</a></li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+     <h2 style="color:black;">STORE TO HOME </h2>
+    </div>
+    <div class="navbar">
+     <a href="/">ΑΡΧΙΚΗ</a>
+     <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+     <a href="/FAQ">FAQ</a>
+     <a href="/team" >ABOUT US</a>
+     <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+     <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+   </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8" style="background-color:#0a0a0a;">
+            
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <BR>
+            <table class="table" style="background-color:#ffcc00;">
+                <tr>
+                    <td><center>USERNAME</center></td>
+                    <td><center>{{current_user.username}}</center></td>
+                </tr>
+                <tr>
+                    <td><center>ΟΝΟΜΑ</center></td>
+                    <td><center>{{current_user.firstname}}</center></td>
+                </tr>
+                <tr>
+                    <td><center>ΕΠΩΝΥΜΟ</center></td>
+                    <td><center>{{current_user.lastname}}</center></td>
+                </tr>
+                <tr>
+                    <td><center>EMAIL</center></td>
+                    <td><center>{{current_user.email}}</center></td>
+                </tr>
+                <tr>
+                    <td><center>ΤΗΛΕΦΩΝΟ</center></td>
+                    <td><center>{{current_user.phonenumber}}</center></td>
+                </tr>
+                <tr>
+                    <td><center>ΣΥΝΕΡΓΑΤΗΣ ΩΣ</center></td>
+                    <td><center>{{current_user.partnership}}</center></td>
+                </tr>
+                {% if current_user.partnership != 'Απλός Χρήστης' %}
+                <form action="" method="post">
+                <tr>
+                    <td><center>ΑΦΜ {% if current_user.afm == ' ' or current_user.afm == None %} <img src="/static/images/warning-outline.svg" style="background-color: red; color: white; width: 30px; height: 30px; margin: 5px; border-radius: 5px;" title="ΠΡΕΠΕΙ ΝΑ ΚΑΤΑΧΩΡΗΣΕΤΕ ΤΟ ΑΦΜ ΣΑΣ" id="afm"> </center></td>
+                    <td><center>Καταχωρήστε ΑΦΜ <input type="number" name = "afmnum"></center></td>
+                    {% else %}
+                    <td><center>{{current_user.afm}}</center></td>
+                    {% endif %}
+                    
+                </tr>
+              </table>
+              {% if current_user.afm == ' ' or current_user.afm == None %}
+              <center><button type="submit" class="btn btn-success">ΚΑΤΑΧΩΡΗΣΗ</button></center>
+              {% endif %}
+            </form>
+            {% endif %}
+              <BR><BR>
+            </div>
+            
+        </div>
+        <div class="col-sm-2"></div>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+        
+</body>
+</html>

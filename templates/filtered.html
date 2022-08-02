@@ -1,0 +1,101 @@
+<html>
+<head>
+  <link rel="icon" href="/static/images/storetohome.png">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+	<title>STORE TO HOME </title>
+  <link rel="stylesheet" href="{{url_for('static', filename='perigrafh.css')}}"/>
+  <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+  <link rel="stylesheet" href="{{url_for('static', filename='desmeush.css')}}"/>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color:#cf9904;">
+ <!-- Header -->
+ <nav class="desmeush"><p> Δέσμευση 10ετίας για μηδενικό κόστος καταχώρησης ακινήτων </p></nav>
+
+ <div class="header">
+  <div class="top">
+    <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+    {% if current_user.is_authenticated %}
+    <div class="home">
+      
+      <div class="btn-group">
+        <button type="button" class="btn"><a href="/myAccount"><ion-icon name="home" id = "io"></ion-icon></a></button>
+        <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="/userads">Οι αγγελίες μου</a></li>
+          <li><a href="/notifications">Ειδοποιήσεις</a></li>
+          <li><a href="/logout">Αποσύνδεση</a></li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <h2 style="color:black;">STORE TO HOME </h2>
+ </div>
+ <div class="navbar">
+  <a href="/">ΑΡΧΙΚΗ</a>
+  <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+  <a href="/FAQ">FAQ</a>
+  <a href="/team" >ABOUT US</a>
+  <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+  <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+</div>
+
+  {% if adv %}
+    <div class="container-fluid"style="padding:50px;">
+      {% for ad in adv %} 
+      {% if ad.region == region and ad.price>=min and max>=ad.price %}
+        <div class="row"  style="background-color:lavenderblush;padding:30px;">
+          
+            <div class="col-sm-4"style="margin-top:50px;">
+              <img src="https://storetohome.s3.eu-central-1.amazonaws.com/{{ad.pic}}"  width="400" height="365">
+            </div>
+            
+            <div class="col-sm-6" style="margin-top:50px;margin-left:20px;">
+              <center>
+              <h3>{{ad.title}}</h3>
+              <h4>{{ad.address}}</h5>
+              <p class="round2"> Κωδικός ακινήτου #<b>{{ ad.code }}</b></p>
+              <h3>{{ ad.price }}€ &nbsp;&nbsp;&nbsp;{{ad.emvado}} τ.μ.&nbsp;&nbsp;&nbsp;{{ad.tmprice}}€/τ.μ&nbsp;&nbsp;&nbsp;{{ad.category}}</h3>
+              <button class="button button1"><b><a href="/akinhta/{{ad.code}}">Δες την αγγελία</a></button>
+              </center>
+              </div>     
+            
+        </div>
+      <br>
+      {% endif %}
+
+  {% endfor %}
+  </div>
+  {% else %}
+  <h3>Δεν υπάρχουν αγγελίες</h3>
+  {% endif %}
+
+
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</body>
+</html>
+

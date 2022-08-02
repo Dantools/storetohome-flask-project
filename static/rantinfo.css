@@ -1,0 +1,17 @@
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding:5px;
+    margin:5px;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 2px solid black;
+}

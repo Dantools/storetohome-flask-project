@@ -1,0 +1,101 @@
+p.round2 {
+    border: 1px solid #292901;
+    border-radius: 5px;
+    padding: 30px;
+  }
+  
+  .button {
+    background-color:#0a0a0a; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+  .button1 {
+    background-color:#0a0a0a; 
+    color: WHITE; 
+    margin-top: 50px;
+  }
+
+  .button1 a{
+    text-decoration: none;
+    color: #c7b704;
+
+  }
+
+  .button1:hover {
+    
+    color: black;
+  }
+  
+  .button1 a:hover{
+    text-decoration: none;
+    color: #ffcc00;;
+    
+  }
+
+  
+  #pagination{
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+    border:#264653;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 1rem 1rem 1rem -1rem #264653;
+    
+  }
+
+  #pagination:hover{
+    background-color: #264653;
+    color:white;
+    transition: 0.3s;
+  }
+
+  .paginate{
+    margin-bottom: 50px;
+  }
+
+
+.secrow{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.secrow img{
+  width:450px;
+  height:400px;
+}
+
+@media screen and (max-width: 875px) {
+  
+  .secrow{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width:575px){
+  .secrow img{
+    width: 250px;
+    height: 150px;
+    margin-left: 75px;
+  }
+}
+
+@media screen and (max-width: 475px){
+  .secrow img{
+    width: 80px;
+    height: 50px;
+    margin-left: 40px;
+  }
+}

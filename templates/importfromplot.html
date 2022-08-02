@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='encode.css')}}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>StoreToHome</title>
+
+
+
+</head>
+<body>
+    <!--<form action="encode" method="POST">
+        <label>Βάλε το email του PLOT λογαριασμού</label>
+        <input type="email" name="email"><br>
+        <label>Βάλε το password του PLOT λογαριασμού</label>
+        <input type="password" name="password"><br>
+        <label>Βάλε το κλειδί του λογαριασμού σου</label>
+        <input type="text" name="token">
+        <input type="submit" placeholder="ΚΑΤΑΧΩΡΗΣΕ ΑΓΓΕΛΙΑ">
+    </form> -->
+    <div class="header">
+        <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+       <div class="home">
+       </div>
+        <h2 style="color:black;">STORE TO HOME </h2>
+       </div>
+       <div class="navbar">
+        <a href="/">ΑΡΧΙΚΗ</a>
+        <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+        <a href="/team" >ABOUT US</a>
+        <a href="/FAQ">FAQ</a>
+        <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+        <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+
+          <div class="dropdown">
+                <ion-icon name="person-circle" class="io" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/userads">Οι αγγελίες μου</a></a></li>
+                <li><a class="dropdown-item" href="/notifications">Ειδοποιήσεις</a></a></li>
+                <li><a class="dropdown-item" href="/calctool">Αξία ακινήτου</a></a></li>
+                <li><a class="dropdown-item" href="/cal">Ραντεβού</a></a></li>
+                <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></a></li>
+            </ul>
+            </div>
+      </div>
+      
+      <div class="container" style="margin-top: 100px;"> 
+        <div class="col-md-6"><h4>Μπορείς να περάσεις τις αγγελίες καταστημάτων απο το Plot.gr στο StoreToHome χωρίς ταλαιπωρία, με λίγα μόνο βήματα.</h4>
+            <ul>
+                <li><p>Βάλε στην παρακάτω φόρμα το Email που χρησιμοποιείς για να συνδεθείς στο Plot.gr</p></li>
+                <li><p>Έπειτα βάλε τον κωδικό</p></li>
+                <li><p>Τέλος, χρησιμοποίησε το μοναδικό κλειδί που θα πάρεις απο το Plot.gr</p></li>
+                <li><p>Πάτα το κουμπί 'Υποβολή'</p></li>
+            </ul>
+            <p>Μπορείς να βρείς τα βήματα στο βίντεο.</p>
+        </div>
+        <div class="col-md-6">     
+        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY" style="width:420px;height:250px;"></iframe>
+    </div>   
+      </div>
+        <div class="container mt-5" style="margin-bottom: 100px;" id="form">
+            <form action="importfromplot" method="POST" class="plot">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email Plot</label>
+                    <input type="email" class="form-control" id="Email" name="email" required 
+                    onkeyup="isEmpty()">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password Plot</label>
+                    <input type="password" class="form-control" id="Password" name="password" 
+                    onkeyup="isEmpty()" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputToken" class="form-label">Token Plot</label>
+                    <input type="token" class="form-control" id="token" name="token" required 
+                    onkeyup="isEmpty()">
+                </div>
+                <button type="submit" onclick="upload()" class="btn btn-primary" disabled id="subm"
+                >Υποβολή</button>
+            </form>
+            <div class="container mt-5" id="pb" hidden>
+              <div class="progress-bar"><center><p id="number">0%</p></center></div>
+              <div><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></div>
+            </div>
+            
+          </div>
+        
+        
+        
+   
+
+
+    <section class=" bg-dark text-white pt-1 pb-1" style="background-color: #343a40;">
+	
+        <div class="container center">
+        
+            <!-- Footer -->
+            <footer><style>
+            a:hover{
+            text-decoration:none;
+            }
+            </style>
+              <!-- Section: Social media -->
+              
+              <!-- Section: Social media -->
+    
+              <!-- Section: Links  -->
+              <section class="">
+                <div class="container text-center text-md-start mt-5">
+                  <!-- Grid row -->
+                  <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <!-- Content -->
+                      <h6 class="text-uppercase fw-bold mb-4" style="color: white; margin-top:100px">
+                        <i class="fas fa-gem me-3"></i> Store To Home
+                      </h6>
+                      <p style="color: white;">
+                        Αξιοποιούμε τα χιλιάδες αδιάθετα τετραγωνικά ακινήτων στις ελληνικές πόλεις.
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      
+                      <h6 class="text-uppercase fw-bold mb-4" style="color: white; margin-top:100px;">
+                      Πολιτικές
+                      </h6>
+                      <p>
+                        <a href="#!" class="text-reset" style="color: white;">Όροι χρήσης</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset"style="color: white;">Πολιτική επιστροφής</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset"style="color: white;">Πολιτική απορρήτου</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset"style="color: white;">Νομική ανακοίνωση</a>
+                      </p>
+                    </div>
+                     <!--Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4" style="color: white; margin-top: 100px;">
+                        Χρήσιμοι σύνδεσμοι
+                      </h6>
+                      <p>
+                        <a href="/aggelies/1" class="text-reset"style="color: white;">Ακίνητα</a>
+                      </p>
+                      <p>
+                        <a href="/myAccount" class="text-reset"style="color: white;">Λογαριασμός</a>
+                      </p>
+                      <p>
+                        <a href="/team" class="text-reset"style="color: white;">Η ομάδα μας</a>
+                      </p>
+                      <p>
+                        <a href="/contact_form" class="text-reset"style="color: white;">Βοήθεια</a>
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4" style="color: white; margin-top:100px;">
+                        Επικοινωνία
+                      </h6>
+                      <p><i class="fas fa-home me-3"></i> <a href="https://www.google.com/maps/place/%CE%91%CE%BD%CE%B1%CF%84%CE%BF%CE%BB%CE%B9%CE%BA%CE%AE%CF%82+%CE%98%CF%81%CE%AC%CE%BA%CE%B7%CF%82+154%CE%92,+%CE%98%CE%B5%CF%83%CF%83%CE%B1%CE%BB%CE%BF%CE%BD%CE%AF%CE%BA%CE%B7+544+53/@40.6063764,22.9708086,17z/data=!3m1!4b1!4m5!3m4!1s0x14a838c1129560d1:0x540fc758c04167cf!8m2!3d40.6063764!4d22.9729973" class="text-reset" target="_blank"style="color: white;">Ανατολικής Θράκης 154Β, 54453, Θεσσαλονική, Ελλάδα </a></p>
+                      <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        <a href="mailto:dhspapa@yahoo.gr" class="text-reset" target="_blank"style="color: white;">dhspapa@yahoo.gr</a>
+                      </p>
+                      <p><i class="fas fa-phone me-3"></i><a href="tel:+30-698-161-5739" class="text-reset" target="_blank"style="color: white;"> + 30 698 161 5739</a></p>
+                      <!--<p><i class="fas fa-print me-3"></i> </p>-->
+                    </div>
+                    <!-- Grid column -->
+                  </div>
+                  <!-- Grid row -->
+                </div>
+              </section>
+              <!-- Section: Links  -->
+    
+              <!-- Copyright -->
+              <div class="text-center p-4"style="margin-top: 100px; margin-bottom: 30px; color: white;" >
+                <p>© 2021, StoreToHome</p>
+              </div>
+             <!-- Copyright -->
+            </footer>			
+        </div>
+        
+    </section>
+
+    <script type="text/javascript">
+      const upload = () => {
+          const progressBar = document.querySelector('.progress-bar')
+          progressBar.setAttribute('id', 'play-animation')
+          const cont = document.getElementById("pb")
+          cont.removeAttribute('hidden')
+      }
+
+      let number = document.getElementById("number");
+      let counter = 0;
+      setInterval(() =>{
+        if (counter == 99){
+          clearInterval();
+        }else{
+          counter +=1;
+          number.innerHTML = counter + "%";
+        }
+      },100);
+
+      function isEmpty(){
+        let email = document.getElementById("Email").value;
+        let password = document.getElementById("Password").value;
+        let token = document.getElementById("token").value;
+
+        if (email !== "" && password !== "" && token !== ""){
+          document.getElementById("subm").removeAttribute("disabled");
+        }
+      }
+    </script>
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>

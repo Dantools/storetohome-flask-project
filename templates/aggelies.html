@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/static/images/storetohome.png">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoreToHome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='perigrafh.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='desmeush.css')}}"/>
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color:#cf9904;">
+  <nav class="desmeush"><p> Δέσμευση 10ετίας για μηδενικό κόστος καταχώρησης ακινήτων </p></nav>
+
+  <div class="header">
+    <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+   <div class="home">
+   </div>
+    <h2 style="color:black;">STORE TO HOME </h2>
+   </div>
+   <div class="navbar">
+    <a href="/">ΑΡΧΙΚΗ</a>
+    <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+    <a href="/team" >ABOUT US</a>
+    <a href="/FAQ">FAQ</a>
+    <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+    <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+
+      <div class="dropdown">
+            <ion-icon name="person-circle" class="io" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+            
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/userads">Οι αγγελίες μου</a></a></li>
+            <li><a class="dropdown-item" href="/notifications">Ειδοποιήσεις</a></a></li>
+            <li><a class="dropdown-item" href="/calctool">Αξία ακινήτου</a></a></li>
+            <li><a class="dropdown-item" href="/cal">Ραντεβού</a></a></li>
+            <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></a></li>
+        </ul>
+        </div>
+  </div>
+
+<div class="container-fluid">
+    <div class="col-sm-15" >    
+      {% for i in aggls.items %} 
+      <div class="container-fluid">
+        <div class="row" style="margin: 20px;background-color:rgb(255, 255, 255);padding: 40px;">
+            <center>  
+              <div class="secrow" style="width: 100%;">
+                {% if 'static.plot.gr' in i.pic %}
+                <img src="{{i.pic}}" alt="">
+                {% else %}
+                <img src="https://storetohome.s3.eu-central-1.amazonaws.com/{{i.pic}}"  width="400" height="365">
+                {% endif %}
+              <div class="col" style="width:100%;" >
+                <h3>{{i.title}}</h3>
+                <h4>{{i.address}}</h4>
+                <p class="round2" style="margin:20px;font-size: 25px;"> Κωδικός ακινήτου<b> #{{ i.code }}</b></p>
+                <h3>{{ i.price }}€ &nbsp;&nbsp;&nbsp;{{i.emvado}} τ.μ.&nbsp;&nbsp;&nbsp;{{i.tmprice}}€/τ.μ&nbsp;&nbsp;&nbsp;{{i.category}}</h3>
+                <button class="button button1"><a href="/akinhta/{{i.code}}">Δες την αγγελία</a></button>
+              </div>
+            </div>
+              </center>
+          
+          
+        </div>
+      </div>
+      <hr>
+  {% endfor %}
+  </div>
+  
+</div>
+
+
+<center>
+<nav aria-label="...">
+  <ul class="pagination">
+    
+    {% for page in aggls.iter_pages() %}
+    {% if page %}
+    <li class="page-item "><a href="{{url_for('aggelies', page_num = page)}}" >{{page}}</a></li>
+    {% else %}
+      ...
+    {% endif %}
+    {% endfor %}
+    </li>
+  </ul>
+</nav>
+</center>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+</body>
+</html>

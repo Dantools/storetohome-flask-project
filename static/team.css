@@ -1,0 +1,99 @@
+
+
+  body {
+    margin: 0;
+
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.2%;
+    margin-bottom: 16px;
+    padding: 0 5px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      height:750px;
+      align-items: center;
+  }
+
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #ffcc00;
+    color: black;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after,
+  .row::after {
+    content: "";
+    clear: both;
+    display: flex;
+  }
+
+  .title {
+    color: brown;
+  }
+
+  .button {
+    border: 1px solid;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: black;
+    background-color: #ffcc00;
+    text-align: center;
+    width: 100%;
+    cursor:default;
+  }
+
+
+  .email a,
+  .tel a,
+  .site a,
+  .fb a,
+  .youtube a {
+    text-decoration: none;
+    color: #a52a2a;
+  }
+  .email i,
+  .tel i {
+    color: lightskyblue;
+  }
+
+  .site i {
+    color: black;
+  }
+
+  .fb i {
+    color: blue;
+  }
+
+  .youtube i {
+    color: red;
+  }
+  img {
+    border-radius: 50cm;
+  }
+ 
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: flex;
+    }
+  }

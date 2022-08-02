@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/static/images/storetohome.png">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <title>StoreToHome</title>
+</head>
+
+<body style="background-color:#cf9904;">
+ <div class="header">
+ <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+ {% if current_user.is_authenticated %}
+    <div class="home">
+      
+      <div class="btn-group">
+        <button type="button" class="btn"><a href="/myAccount"><ion-icon name="home" id = "io"></ion-icon></a></button>
+        <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="/userads">Οι αγγελίες μου</a></li>
+          <li><a href="/notifications">Ειδοποιήσεις</a></li>
+          <li><a href="/cal">Ραντεβού</a></li>
+          <li><a href="/logout">Αποσύνδεση</a></li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  <h2 style="color:black;">STORE TO HOME </h2>
+ </div>
+ <div class="navbar">
+  <a href="/">ΑΡΧΙΚΗ</a>
+  <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+  <a href="/FAQ">FAQ</a>
+  <a href="/team" >ABOUT US</a>
+  <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+  <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+</div>
+<center>
+{% if current_user.partnership == "Εργολάβος" %}
+{% if ldeal %}
+
+        <div>
+        <h2>Η συμφωνία έχει πραγματοποιηθεί.</h2>
+        </div>
+{% else %}
+<div>
+  <h3>Ενδιαφερόμενος: {{number.firstname}} {{number.lastname}} </h3>
+    <h3>Τηλέφωνο: {{number.number}}</h3>
+    <h3>Έχετε συμφωνήσει με τον πελάτη ;</h3>
+    <h4>Αν ναι, συμπληρώστε το ποσό που συμφωνήσατε και θα επικοινωνήσουμε για εξακρίβωση.</h4>
+    <h5>Αφού συμπληρώσετε το ποσό, κανένας απο τους υπόλοιπους εξειδικευμένους συνεργάτες μας δεν θα μπορεί να πάρει τη δουλειά.
+         </h5>
+    <h5>Αυτό έχει ως κόστος την καταβολή του 6% της συμφωνίας στην storetohome.</h5>
+    <h4>Αν οχι, γυρίστε πίσω.</h4>
+    
+    
+    <form action="" method="POST">
+        <label for="deal">Συμφωνία στα:</label>
+        <input type="number" name = "deal" id = "deal">
+        <button class="btn btn-default" type="submit">Υποβολή</button>
+    </form>
+</div>
+</center>
+{% endif %}  
+{% else %}
+<center>
+<h1>Δεν εισαι εργολάβος!</h1> 
+</center>
+{% endif %}    
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</body>
+</html>

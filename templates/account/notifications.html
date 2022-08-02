@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/static/images/storetohome.png">
+    <link rel="stylesheet" href="{{url_for('static', filename='desmeush.css')}}"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='perigrafh.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <title>StoreToHome</title>
+</head>
+<style>
+    #h3-contact{
+        height:200px;
+    }
+    #h3-contact a{
+        text-decoration: none;
+    }
+    .lock{
+        margin-top:50px;
+    }
+
+    #h3-contact #lock{
+        text-decoration: none;
+        color:#cf9904;
+        background-color: black;
+        padding: 20px;
+    }
+    #h3-contact #lock:hover{
+        text-decoration: none;
+        color:black;
+        background-color: #ffcc00;
+        padding: 20px;
+    }
+</style>
+
+<body style="background-color:#cf9904;">
+    <nav class="desmeush"><p> Δέσμευση 10ετίας για μηδενικό κόστος καταχώρησης ακινήτων </p></nav>
+
+    <div class="header">
+     <div class="top">
+       <img src="/static/images/storetohome.png" alt="store to home" width="15%" >
+       {% if current_user.is_authenticated %}
+       <div class="home">
+         
+         <div class="btn-group">
+            <button type="button" class="btn"><a href="/myAccount"><ion-icon name="home" id = "io"></ion-icon></a></button>
+            <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
+             <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu dropdown-menu-right" role="menu">
+             <li><a href="/userads">Οι αγγελίες μου</a></li>
+             <li><a href="/notifications">Ειδοποιήσεις</a></li>
+             <li><a href="/cal">Ραντεβού</a></li>
+             <li><a href="/logout">Αποσύνδεση</a></li>
+           </ul>
+         </div>
+       </div>
+       {% endif %}
+     </div>
+    
+     <h2 style="color:black;">STORE TO HOME </h2>
+     
+    </div>
+    <div class="navbar">
+        <a href="/">ΑΡΧΙΚΗ</a>
+        <a href="/aggelies/1">ΑΚΙΝΗΤΑ</a>
+        <a href="/FAQ">FAQ</a>
+        <a href="/team" >ABOUT US</a>
+        <a href="/contact_form">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+        <a class="active" href="/add">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a>
+      </div>
+    
+    <div class="container-fluid" >
+    {% if current_user.partnership == 'Απλός Χρήστης' or current_user.partnership == 'Μεσίτης' %}
+    {% if ads %}
+    <center>
+    {% for aggelia in aggelies %}
+    <div class="row" style = "height: 250px;">
+    <div class="col-sm-1">
+
+    </div>
+    
+	<div class="col-sm-10" style="background-color:rgb(255, 255, 255);" id = "h3-contact" >
+        <h3>Ο/Η {{aggelia.firstname}} {{aggelia.lastname}} ενδιαφέρεται για την αγγελία με αριθμό <a href = "/akinhta/{{aggelia.code}}">#{{aggelia.code}}. </a></h3>
+        
+            {% if aggelia.status == 'Pending' %}
+            <div>
+                <h3><a href="interest/{{aggelia.id}}" id = "contact" >Επικοινωνία</a></h3>
+            </div>   
+            {% else %}
+            <div>
+                <h3>Δείτε την <a href="prosfora/{{aggelia.id}}">προσφορά</a> σας</h3>
+            </div>
+            {% endif %}
+    </div>
+</div>
+    {% endfor %}
+
+</center>
+    </div>
+    {% else %}
+    <h2>Δεν υπάρχουν ειδοποιήσεις</h2>
+    {% endif %}
+    {% endif %}
+    
+
+    {% if current_user.partnership == 'Διακοσμητής' or current_user.partnership == 'Μηχανικός' %}
+        {% if ads %}
+            {% for i in sent %}
+            <div class="row" style = "height: 250px;">
+                {% if i.deal != '' %}
+                <div class="col-sm-1">
+
+                </div>
+                
+                <div class="col-sm-10" style="background-color:rgb(255, 255, 255);" id = "h3-contact">
+                    <h2>Υπάρχουν διαθέσιμες εργασίες για την αγγελία <a href = "/akinhta/{{i.code}}">#{{i.code}}  </a>απο τον/την κ. {{i.firstname}} {{i.lastname}}</h2>
+                    <div class = "lock">
+                        <a href="/offer/{{i.code}}" id="lock">Κλείδωσε την αγγελία</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        
+        {% else %}
+            <h2>Δεν υπάρχουν ειδοποιήσεις</h2>
+        {% endif %}
+    {% endif %}
+
+
+    {% if current_user.partnership == 'Εργολάβος' %}
+    {% if ads %}
+    {% for ad in advs %}
+    <div class="row" style = "height: 250px;">
+    <div class="col-sm-1">
+
+    </div>
+    
+    <div class="col-sm-10" style="background-color:rgb(255, 255, 255);" id = "h3-contact">
+        <h2>Υπάρχουν διαθέσιμες εργασίες για την αγγελία <a href = "/akinhta/{{ad.code}}">#{{ad.code}}  </a>απο τον/την κ. {{ad.firstname}} {{ad.lastname}}</h2>
+        <div class = "lock">
+           
+            <a href="/ergolavoi/{{ad.code}}" id="lock">Κλείδωσε την αγγελία</a>
+           
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>Δεν υπάρχουν ειδοποιήσεις</h2>
+    {% endif %}
+    {% endif %}
+</div>
+</div>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</body>
+</html>

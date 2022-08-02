@@ -1,0 +1,278 @@
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 1%;
+  text-align: center;
+  background: #ffcc00;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  background-color: #0a0a0a;
+}
+
+.navbar a {
+  color: #ffcc00;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #ffcc00;
+  color: black;
+  text-decoration: none;
+
+}
+.active {
+  background-color: #967902;
+}
+
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 1% 2%;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #967902;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #000000;
+    color: #ffcc00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom:100px;
+    margin-top:100px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #ffcc00;
+    color: #000000;
+  }
+
+  input[type=number], select {
+    width: 100%;
+    padding: 1% 2%;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #967902;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=file], select {
+    width: 100%;
+    padding: 1% 2%;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #967902;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+ 
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
+
+  
+  @media screen and (max-width: 800px) {
+    .row, .navbar, .leftcolumn, .rightcolumn {   
+      flex-direction: column;
+    }
+  }
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 50px;
+    background: #f1f1f1;
+  }
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 20%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 80%;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 30px;
+    margin-top: 30px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  .container {
+    position: relative;
+    text-align: left;
+    
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(5%, 120%);
+  }
+  
+  .top-right {
+    position: absolute;
+    top: 50%;
+    right: 35%;
+     transform: translate(52%, -76%);
+  }
+  .bottom-right {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translate(53%, 180%);
+  }
+  
+  .button {
+    background-color:#0a0a0a; 
+    border: none;
+    border-radius: 10%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button1 {
+    background-color:#0a0a0a; 
+    color: WHITE; 
+  }
+  .button1:hover {
+    background-color: #c7b704;
+    color: black;
+  }
+  p.round2 {
+    border: 5px ridge #4a4a00;
+    border-radius: 8px;
+    padding: 5px;
+  }
+
+
+  #io{
+    font-size: 27px;
+    color: #ffcc00;
+  }
+
+  .btn-group{
+    color: #ffcc00;
+  }
+ 
+  .btn{
+    background-color: #0a0a0a;
+  }
+  .card a:hover{
+    text-decoration: none;
+  }
+  p.round2 {
+    border: 1px solid #292901;
+    border-radius: 5px;
+    padding: 30px;
+  }
+  
+  .button {
+    background-color:#0a0a0a; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+  .button1 {
+    background-color:#0a0a0a; 
+    color: WHITE; 
+  }
+
+  .button1 a{
+    text-decoration: none;
+    color: #ffcc00;
+
+  }
+
+  .button1:hover {
+    
+    color: black;
+  }
+  
+  .button1 a:hover{
+    text-decoration: none;
+    color: #ffcc00;;
+    
+  }
+
+  .home{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-left:85%;
+    
+    text-align: center;
+  }

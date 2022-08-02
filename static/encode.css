@@ -1,0 +1,39 @@
+
+ #pb{
+    height:25px;
+    background-color: aliceblue;
+    position:relative;
+    border-radius: 7px;
+    width:500px;
+    padding:0px;
+
+}
+.container .progress-bar{
+    position:absolute;
+    background-color: #aacc00;
+    animation: progress-animation 5s forwards;
+    border-radius: 7px;
+    height:100%;
+    
+}
+
+#play-animation{
+    animation: progress-animation 5s forwards;
+}
+
+@keyframes progress-animation{
+    0%{width:0%;}
+    100%{width:100%;}
+}
+
+#number{
+    font-weight: 600;
+    font-size: 15px;
+    color:#555;
+}
+  
+@media screen and (max-width: 768px) {
+    #pb {
+      width:100%;
+    }
+  }

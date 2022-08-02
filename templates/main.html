@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="/static/images/storetohome.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Source+Sans+Pro&display=swap" rel="stylesheet">	<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-218798712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-218798712-1');
+</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='desmeush.css')}}">
+	<link rel="icon" href="/static/images/storetohome.png">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<title>StoreToHome</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+	<title>StoreToHome</title>
+		<!-- Start of Woopra Code -->
+<script>
+	!function(){var t,o,c,e=window,n=document,r=arguments,a="script",i=["call","cancelAction","config","identify","push","track","trackClick","trackForm","update","visit"],s=function(){var t,o=this,c=function(t){o[t]=function(){return o._e.push([t].concat(Array.prototype.slice.call(arguments,0))),o}};for(o._e=[],t=0;t<i.length;t++)c(i[t])};for(e.__woo=e.__woo||{},t=0;t<r.length;t++)e.__woo[r[t]]=e[r[t]]=e[r[t]]||new s;(o=n.createElement(a)).async=1,o.src="https://static.woopra.com/js/w.js",(c=n.getElementsByTagName(a)[0]).parentNode.insertBefore(o,c)}("woopra");
+  
+	woopra.config({
+	  domain: "storetohome.gr",
+	  outgoing_tracking: true,
+	  download_tracking: true,
+	  click_tracking: true
+	});
+	
+	woopra.track();
+  </script>
+  <!-- End of Woopra Code -->
+
+  <script src= "https://botpresspapadopoulos.com/assets/modules/channel-web/inject.js"> </script>
+
+
+</head>
+<body>
+	<nav class="desmeush"><p> Δέσμευση 10ετίας για μηδενικό κόστος καταχώρησης ακινήτων </p></nav>
+	<nav class="navbar navbar-light shadow-sm bg-white navbar-expand-lg">
+		<h5><a href="/" class="navbar-brand">StoreToHome</a></h5> 
+		<button class="navbar-toggler" type="button" data-toggle="collapse" type="button" data-toggle="collapse" data-target="#myBar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div id="myBar" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+			
+				{% if current_user.is_authenticated %}
+				<li class="nav-item"><button type="button" class="btn" data-toggle="collapse" ><a href="/myAccount"style="font-size: 25px;">Λογαριασμός</a></button></li>
+
+				<li class="nav-item"><button type="button" class="btn" data-toggle="collapse" ><a href="/logout"style="font-size: 25px;">Αποσύνδεση</a></button></li>
+				{% else %}
+				<li class="nav-item"><button type="button" class="btn" data-toggle="collapse" ><a href="/login"style="font-size: 25px;">Σύνδεση</a></button></li>
+				<li class="nav-item"><button type="button" class="btn" data-toggle="collapse" ><a href="/signup" style="font-size: 25px;">Γίνε συνεργάτης</a></button></li>
+				
+				{% endif %}
+				<li class="nav-item"><a href="/team" class="nav-link"> Σχετικά με εμάς </a></li>
+				<li class="nav-item"><a href="/FAQ" class="nav-link"> F.A.Q.s</a></li>
+				<li class="nav-item"><a href="/contact_form" class="nav-link"> Eπικοινωνία</a></li>
+					
+			</ul>	
+		</div>
+	</nav>
+	<h1 style="text-align: center; padding: 4px;margin-top: 15px;">STORE TO HOME</h1>
+	<br>
+	
+
+<hr>
+<center>
+	<section>
+		<div class="container center">
+			<div class="row" style="margin-left: 13.5%;">
+				<div class="col-md-10" >
+					<form action="" method="post" style="width:auto; "><br><br>
+					<div class="first_row">
+						<div class="form-group">
+							<div class="col-sm-8">
+								<label for="country"><b>1. Για πόσα άτομα είναι το ακίνητο που θέλεις να αγοράσεις;</b></label>
+							 	<select  class="form-control" id="qty" name="qty" >
+									<option value=1>1</option>
+									<option value=2>2</option>
+									<option value=3>3</option>
+									<option value=4>4</option>
+									<option value=5>5</option>
+									<option value=6>6</option>
+									<option value=7>7</option>
+									<option value=8>8</option>
+								</select>
+							</div>
+					
+							<div class="col-sm-8" id="town">
+							<label for="exampleFormControlTextarea4"><b>Διάλεξε πόλη</b></label>
+							<select class = "form-control" id="region" name="region">	
+								<option value="Θεσσαλονίκη">Θεσσαλονίκη</option>
+								<option value="Αθήνα">Αθήνα</option>
+								<option value="Πάτρα">Πάτρα</option>
+								<option value="Λάρισα">Λάρισα</option>
+								<option value="Βόλος">Βόλος</option>
+								<option value="Ιωάννινα">Ιωάννινα</option>
+								<option value="Ηράκλειο">Ηράκλειο</option>
+								<option value="Αλεξανδρούπολη">Αλεξανδρούπολη</option>
+							</select>
+							</div>
+						</div>
+						
+					</div>
+					<div class="second_row">
+						<div class="form-group">
+							<div class="col-sm-8">
+							<label for="exampleFormControlTextarea4"><b>2. Minimum ποσό χρημάτων</b></label>
+							 <input type="number" style="resize:none" class="form-control" id="exampleFormControlTextarea4" rows="1" placeholder="πχ 10.000" name ="min" required>
+							
+							</div>
+							<div class="col-sm-8">
+							<label for="exampleFormControlTextarea4"><b>Maximum ποσό χρημάτων</b></label>
+							 <input type="number" style="resize:none" class="form-control" id="exampleFormControlTextarea4" rows="1" placeholder="πχ 40.000" name = "max" required>
+							
+						 </div>
+						</div>
+					</div>
+					<div class="col-sm-8">
+					<div class="third_row">
+					<div class="form-group">
+					<button class="submit-btn" type="submit" value="Υποβολή">Αναζήτηση</button>
+					</div>
+					</div>
+					</div>
+					</form>
+				</div>
+				</div>	
+			
+			</div>
+	</section>
+</center>
+	
+	<br>
+	
+	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			  <div class="digmata">
+			  	<center><h2>Δείγματα</h2></center>
+				<div class="threed">
+					<div class="sketchfab-embed-wrapper"> <iframe title="The Lockwood - Full house model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/d7488a3f088949c5863b8286c74f7abe/embed" style="width:400px;height:244px;margin:5px;"> </iframe> </div>
+					<div class="sketchfab-embed-wrapper"> <iframe title="32 Fairview Avenue Loft" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/650b9c7e858745ffaa2b9525eff79eac/embed" style="width:400px;height:244px;margin:5px;"> </iframe> </div>
+					<div class="sketchfab-embed-wrapper"> <iframe title="industrial loft living room" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/5e589e517d6b4801a86b316eeffb27b2/embed" style="width:400px;height:244px;margin:5px;"> </iframe>  </div>
+				</div>
+			  </div>
+		  </div>
+		  {% for ad in adv %}
+		  <div class="carousel-item ">
+			
+			  <center>
+			
+				<div class="post">
+				  <img src="https://storetohome.s3.eu-central-1.amazonaws.com/{{ad.pic}}" alt="" class="slider-image" style="width:400px;height:250px;">	
+				  
+				  <h2>Πριν</h2>
+				  <hr>
+				  <h5><a href="akinhta/{{ad.code}}">Κωδικός ακινήτου #{{ad.code}}</a> | {{ad.price}}€</h5>
+
+				</div>
+				{% set random = range(1,11)|random %}
+				<div class="post">
+					{% if random == 1 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="H. McGinley - Full House Loft Extension" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/70cff92ffde34cbca98ab2579432656e/embed" style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 2 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="The Loft" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/27eaf5a19cc142f8bd63f3417ee6dd90/embed" style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 3 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="industrial loft living room" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/5e589e517d6b4801a86b316eeffb27b2/embed" style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 4 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="Loft House 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/5023d6157a9a47babcf2993e6ae8ad67/embed" style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 5 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="Skagit Loft v2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/316f68f13e7b43d2a6974d745b3a6478/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 6 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="288 Sq Ft Tiny House/Loft" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/33722a0504954691844876ca33b6c164/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 7 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="LONG LOFT 60" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/259de9f8933c4ca7bc97272625cbfb22/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 8 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="Realistic Modern Apartment" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/d4d1356b92e14a09bc96280ac15efb58/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 9 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="House Loft" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7d036a43e4fd4559832c00bb9cb4726e/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% elif random == 10 %}
+					<div class="sketchfab-embed-wrapper"> <iframe title="LOFT" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ece5b16bcd6f4711a61a8f4fc90efde7/embed"style="width:400px;height:244px;"> </iframe> </div>
+					{% endif %}
+					<h2>Μετά</h2>		
+					<hr>		
+					<h5>Εκτιμώμενο κόστος {{ad.emvado * 350 + ad.price}}€</h5>
+				</div>
+			</div>
+		 </center>
+		 {% endfor %}
+		
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>
+		</div>
+		
+	  </div>
+	<br>
+	<hr>
+	<section class="becomepartner">
+		<div class="container center">
+		
+			<div class="row">
+		  
+				<div class="col-md-4 mb-4">
+					<!--<h4  style="text-align: center;">ΟΝΟΜΑΤΕΠΩΝΥΜΟ</h4>-->
+					<p style="text-align: center;">ΘΑ ΣΑΣ ΚΑΛΕΣΕΙ Ο ΣΥΝΕΡΓΑΤΗΣ ΣΥΜΒΟΥΛΟΣ ΑΚΙΝΗΤΩΝ ΜΑΣ</p>
+					<img src="/static/images/14.png" alt="ΣΥΜΒΟΥΛΟΣ ΑΚΙΝΗΤΩΝ" style="width:80%;  border-radius: 500px;" class="center-block">
+				</div>
+				
+				<div class="col-md-4">
+					<!--<h4  style="text-align: center;">ΟΝΟΜΑΤΕΠΩΝΥΜΟ</h4>-->
+					<p style="text-align: center;">ΘΑ ΣΑΣ ΤΟ ΣΧΕΔΙΑΣΕΙ Η ΔΙΑΚΟΣΜΗΤΡΙΑ ΜΑΣ</p>
+					<br>
+					<img src="/static/images/8.jpg" alt="ΔΙΑΚΟΣΜΗΤΡΙΑ" style="width:80%;  border-radius: 500px;" class="center-block">
+				
+					<!--<div class="card" style="width:400px">
+					  <img class="card-img-bottom" src="8.jpg" alt="Card image">
+					  <div class="card-body">
+						<h4 class="card-title" style="text-align: center;">ΟΝΟΜΑΤΕΠΩΝΥΜΟ</h4>
+						<p class="card-text" style="text-align: center;">ΘΑ ΣΑΣ ΤΟ ΣΧΕΔΙΑΣΕΙ Η ΔΙΑΚΟΣΜΗΤΡΙΑ ΜΑΣ</p>
+					    <a href="#" class="btn btn-primary">See Profile</a>
+					  </div>
+					</div>-->
+				</div>
+				
+				
+				<div class="col-md-4">
+					<!--<h4  style="text-align: center;">ΟΝΟΜΑΤΕΠΩΝΥΜΟ</h4>-->
+					<p style="text-align: center;">ΘΑ ΣΑΣ ΤΟ ΚΑΤΑΣΚΕΥΑΣΕΙ ΤΟ ΕΞΕΙΔΙΚΕΥΜΕΝΟ ΣΥΝΕΡΓΕΙΟ ΜΑΣ</p>
+					<img src="/static/images/16.png" alt="ΣΥΝΕΡΓΕΙΟ" style="width:80%;  border-radius: 500px;" class="center-block">
+				</div>
+	
+			</div>
+
+		<div class="interest" style="margin-top: 30px;">
+		<center>
+			<button class="button-5"><a href="/signup" style="text-decoration: none;color:white;">Γίνε συνεργάτης</a> </button>
+		</center>
+		</div>
+
+	</div>
+	</section>
+<!--
+<div class="card" style="width:400px">
+  <img class="card-img-bottom" src="8.jpg" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">ΘΑ ΣΑΣ ΤΟ ΣΧΕΔΙΑΣΕΙ Η ΔΙΑΚΟΣΜΗΤΡΙΑ ΜΑΣ</p>
+   <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+	
+-->	
+
+	<hr>
+
+	<section>
+	<div class="container center">
+	
+		<div class="row">
+		  
+		  <div class="col-md-4">
+		  <br>
+			<img src="/static/images/9.jpg" alt="Δημήτριος Παπαδόπουλος" style="width:100%;  border-radius: 8px; top:50%; left:50%;" class="img-rounded center-block">
+		  </div>
+ 
+		  <div class="col-md-8">
+			<h5 style="text-align: center;">Πώς λειτουργεί</h5>
+			
+			
+			<br>
+			<blockquote style="text-align: center;">
+			1. Διαλέγεις τον οικονομικό χώρο που θέλεις!
+			</blockquote>
+			
+			<br>
+			<blockquote style="text-align: center;">
+			2. Σε δύο ώρες ο Σύμβουλος Ακινήτων μας θα σε καλέσει για να σου δείξει τον χώρο από κοντά μαζί με 3D σχέδια κατασκευής για να δεις πως θα γίνει.
+			</blockquote>
+			
+			<br>
+			<blockquote style="text-align: center;">
+			3. Συμφώνησες; Αυτό ήταν! Αναλαμβάνουμε συμβόλαια, διακόσμηση, κατασκευή και σε 60 μέρες μένεις <b>στο οικονομικότερο σπίτι των ονείρων σου.</b>
+			</blockquote>
+		  
+		  </div>
+		 
+		</div>
+	</section>
+
+	
+	<hr>
+	<section class="">
+
+		<div class="container center">
+		<center>
+		<!--<h5 style="text-align: center;">Πρόσφατα ολοκληρωμένες μεταμορφώσεις</h5>-->
+		
+		
+
+		<div id="accordion">
+			<div class="card">
+			  <div class="card-header" id="headingOne">
+				<h5 class="mb-0">
+				  <button class="btn btn-link " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none;">
+					<h4>Είσαι μεσίτης;</h4>
+				  </button>
+				</h5>
+			  </div>
+		  
+			  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+				<div class="card-body" style="text-align:start">
+					<b>Πούλησε ή ενοικίασε το ακίνητό σου το γρηγορότερο δυνατόν μέσω της εφαρμογής StoreToHome.</b><br>
+					<b>1.</b> Καταχώρησε το ακίνητό σου<br>
+					<b>2.</b> Στην αγγελία σου υπάρχει μία φόρμα με την οποία ο ενδιαφερόμενος θα μπορεί να εκδηλώσει το ενδιαφέρον του ανά πάσα 
+					στιγμή.<br>
+					<b>3.</b> Με το που συμπληρώσει και στείλει κάποιος την φόρμα αυτή τότε θα λάβεις μία ειδοποίηση στο email σου αλλά και μία 
+					ειδοποίηση μέσα στον λογαριασμό σου στο StoreToHome.<br>
+					<b>4.</b> Έπειτα, σου παρέχουμε τα στοιχεία του ενδιαφερόμενου ώστε να επικοινωνήσεις μαζί του και να κλείσεις την συμφωνία.<br>
+					<b>5.</b> Αφού κλείσεις την συμφωνία, πήγαινε στην ειδοποιήσεις σου και πες μας εάν σε βοηθήσαμε να πουλήσεις/νοικιάσεις το 
+					ακίνητο πατώντας ένα μόνο κουμπί.<br>
+					<b>6.</b> Με αυτή σου την ενέργεια βοηθάς τον αγοραστή να λάβει, σε περίπτωση επιθυμίας του, τις καλύτερες προσφορές από τους 
+					καλύτερους μηχανικούς, διακοσμητές και εργολάβους της αγοράς.
+					<center><a href="/static/pdf/odhgies_mesitis.pdf" download>Κατέβασε το PDF</a></center>
+				</div>	
+			  </div>
+			</div>
+			<div class="card">
+			  <div class="card-header" id="headingTwo">
+				<h5 class="mb-0">
+				  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration: none;">
+					<h4>Είσαι μηχανικός;</h4>
+				  </button>
+				</h5>
+			  </div>
+			  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" >
+				<div class="card-body" style="text-align:start">
+					Αν είσαι μηχανικός και θέλεις να λαμβάνεις συνεχώς εργασίες έκδοσης 
+					αδειών μικρής κλίμακας και αλλαγών χρήσης τότε είσαι στον σωστό 
+					ιστότοπο. Σου στέλνουμε δουλειές και εσύ απλά διεκπαιρεώνεις τους 
+					συστημένους πελάτες της StoreTohome.<br>Τι θα σου κοστίσει; Πληρώνεις σε εμάς μόνο το 6% 
+					από όσους πελάτες κλείσεις. 
+					<center><a href="/static/pdf/odhgies_mixanikos.pdf" download>Κατέβασε το PDF</a></center>
+				</div>
+			  </div>
+			</div>
+			<div class="card">
+			  <div class="card-header" id="headingThree">
+				<h5 class="mb-0">
+				  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;">
+					<h4>Είσαι διακοσμητής;</h4>
+				  </button>
+				</h5>
+			  </div>
+			  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+				<div class="card-body"style="text-align:start">
+					Αν είσαι διακοσμητής και θέλεις να λαμβάνεις συνεχώς εργασίες ανακαίνισης 
+					και τροποποίησης χώρων τότε είσαι στον σωστό 
+					ιστότοπο. Σου στέλνουμε δουλειές και εσύ απλά διεκπαιρεώνεις τους 
+					συστημένους πελάτες της StoreTohome.<br>Τι θα σου κοστίσει; Πληρώνεις σε εμάς μόνο το 6% 
+					από όσους πελάτες κλείσεις.<br> Παρακάτω όμως, υπάρχει και ο οδηγός σε περίπτωση που εσύ θέλεις να ανεβάσεις και ακίνητα φίλων ή δικά σου και να τα αξιοποιήσεις.​
+					<center><a href="/static/pdf/odhgies_diakosmites.pdf" download>Κατέβασε το PDF</a></center>				</div>
+			  </div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingFour">
+				  <h5 class="mb-0">
+					<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;">
+					  <h4>Είσαι υπεργολάβος;</h4>
+					</button>
+				  </h5>
+				</div>
+				<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+				  <div class="card-body"style="text-align:start">
+					  Αν είσαι υπεργολάβος και θέλεις να λαμβάνεις συνεχώς οικοδομικά έργα τότε είσαι στον σωστό 
+					  ιστότοπο. Σου στέλνουμε δουλειές και εσύ απλά διεκπαιρεώνεις τους 
+					  συστημένους πελάτες της StoreTohome.<br>Τι θα σου κοστίσει; Πληρώνεις σε εμάς μόνο το 6% 
+					  από όσους πελάτες κλείσεις.<br> Παρακάτω όμως, υπάρχει και ο οδηγός σε περίπτωση που εσύ θέλεις να ανεβάσεις και ακίνητα φίλων ή δικά σου και να τα αξιοποιήσεις.​
+					  <center><a href="/static/pdf/odhgies_ypergolavos.pdf" download>Κατέβασε το PDF</a></center>				</div>
+				</div>
+			  </div>
+		  </div>
+		 
+		 
+			<!--<p class="text-muted">Πρόσφατα ολοκληρωμένες μεταμορφώσεις</p>-->
+			<!--
+			<div class="row row2">
+				<div class="col-md-3 mb-3">
+					<img src="18.jpg"  style="width:100%" class="center-block">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+				
+				<div class="col-md-3 mb-3">
+					<img src="19.jpg" style="width:100%" class="center-block">
+					<br><br>
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+
+				
+				<div class="col-md-3 mb-3">
+					<img src="18.jpg" class="card-img-top">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Ιταλίας, Θεσσαλονική</p>
+				</div>
+				
+				<div class="col-md-3 mb-3">
+					<img src="19.jpg" class="card-img-top">
+					<br><br>
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+		
+		TEXT
+				<div class="col-md-3 mb-3">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+				<div class="col-md-3 mb-3">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+				<div class="col-md-3 mb-3">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+				<div class="col-md-3 mb-3">
+					<p style="text-align:center">ex.Photo1.Καινούρια μεταμόρφωση στην Τρίγλια, Χαλκιδικής</p>
+				</div>
+				
+			</div>
+			-->
+		</center>
+		</div>
+	</section>
+	
+	
+	<!--
+	<section>
+		<div class="container">
+			<blockquote class="blockquote text-center mb-0">
+				<i class="far fa-camera" style="font-size:60px;"> </i>
+				<p></p>
+				
+			</blockquote> 
+		</div>
+	</section>
+	-->
+	
+	
+	<hr>
+	<section>
+		<div class="container center">
+			<h4 style="text-align: center;"><b>ΓΙΑΤΙ ΝΑ ΑΓΟΡΑΣΕΙΣ ΤΟ ΑΚΙΝΗΤΟ ΣΟΥ ΑΠΟ ΤΟ STORE TO HOME; </b></h4><br>
+				<ul class="list-unstyled" style="text-align: center;">
+					<i class="fas fa-euro-sign"></i>
+					<li class="list-inline-item">40% Οικονομικότερη στέγαση</li>
+					<br>
+					<i> &#9733; </i>
+					<li class="list-inline-item">Δίκτυο αξιολογημένων επαγγελματιών</li>
+					<br>
+					<i class="fas fa-clock"></i>
+					<li class="list-inline-item">Σε 60 μέρες παίρνεις καινούριο</li>
+					<br>
+					<i class="fas fa-map-marker-alt"></i>
+					<li class="list-inline-item">Μπορείς να κατοικήσεις στα πιο κεντρικά σημεία των πόλεων</li>
+					<br>
+					<!--<a class="text-muted-white" href="#goToTop">StoreToHome<i class="fas fa-arrow-up" style="font-size:20px; color:white;"></i></a>-->
+				
+				</ul>
+			
+			
+			
+			
+		</div>
+	</section>	<br>
+	<section class=" bg-dark text-white pt-1 pb-1">
+	
+		<div class="container center">
+		
+			<!-- Footer -->
+			<footer><style>
+		a:hover{
+			text-decoration:none;
+		}
+	</style>
+			  <!-- Section: Social media -->
+			  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+				<!-- Left -->
+				<div class="me-5 d-none d-lg-block">
+				  <span>Ακολουθείστε μας στους συνδέσμους:</span>
+				</div>
+				<!-- Left -->
+
+					<!-- Right -->
+				<div>
+				  <a href="https://www.facebook.com/dhspapa" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-facebook-f"></i>
+				  </a>
+				  &nbsp;
+				  <a href="https://twitter.com/dhspapa" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-twitter"></i>
+				  </a>
+				  &nbsp;
+				  <a href="https://www.google.gr/search?authuser=1&_ga=2.216088726.1603356835.1627481666-373003421.1627481666&q=%CE%A0%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82+%CE%94%CE%B7%CE%BC%CE%AE%CF%84%CF%81%CE%B9%CE%BF%CF%82+%CE%A0%CE%BF%CE%BB%CE%B9%CF%84%CE%B9%CE%BA%CF%8C%CF%82+%CE%9C%CE%B7%CF%87%CE%B1%CE%BD%CE%B9%CE%BA%CF%8C%CF%82+%CE%91%CE%A0%CE%98&ludocid=10836468843663364113&lsig=AB86z5WxM3qTU8J2OXVlxx3JGUSR" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-google"></i>
+				  </a>
+				  &nbsp;
+				  <a href="https://www.instagram.com/dhspapa/" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-instagram"></i>
+				  </a>
+				  &nbsp;
+				  <a href="https://www.youtube.com/channel/UC7EQ1bVI661syg1Hk2pFS-Q" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-youtube"></i>
+				  </a>
+				  &nbsp;
+				  <a href="https://www.linkedin.com/in/dhspapa/" class="me-4 text-reset" target="_blank">
+					<i class="fab fa-linkedin"></i>
+				  </a>
+				  
+				</div>
+				<!-- Right -->
+			</section>
+			  <!-- Section: Social media -->
+
+			  <!-- Section: Links  -->
+			  <section class="">
+				<div class="container text-center text-md-start mt-5">
+				  <!-- Grid row -->
+				  <div class="row mt-3">
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+					  <!-- Content -->
+					  <h6 class="text-uppercase fw-bold mb-4">
+						<i class="fas fa-gem me-3"></i> Store To Home
+					  </h6>
+					  <p>
+						Αξιοποιούμε τα χιλιάδες αδιάθετα τετραγωνικά ακινήτων στις ελληνικές πόλεις.
+					  </p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+					  
+					  <h6 class="text-uppercase fw-bold mb-4">
+                      Πολιτικές
+					  </h6>
+					  <p>
+						<a href="#!" class="text-reset">Όροι χρήσης</a>
+					  </p>
+					  <p>
+						<a href="#!" class="text-reset">Πολιτική επιστροφής</a>
+					  </p>
+					  <p>
+						<a href="#!" class="text-reset">Πολιτική απορρήτου</a>
+					  </p>
+					  <p>
+						<a href="#!" class="text-reset">Νομική ανακοίνωση</a>
+					  </p>
+					</div>
+					 <!--Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+					  <!-- Links -->
+					  <h6 class="text-uppercase fw-bold mb-4">
+						Χρήσιμοι σύνδεσμοι
+					  </h6>
+					  <p>
+						<a href="/aggelies/1" class="text-reset">Ακίνητα</a>
+					  </p>
+					  <p>
+						<a href="/myAccount" class="text-reset">Λογαριασμός</a>
+					  </p>
+					  <p>
+						<a href="/team" class="text-reset">Η ομάδα μας</a>
+					  </p>
+					  <p>
+						<a href="/contact_form" class="text-reset">Βοήθεια</a>
+					  </p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+					  <!-- Links -->
+					  <h6 class="text-uppercase fw-bold mb-4">
+						Επικοινωνία
+					  </h6>
+					  <p><i class="fas fa-home me-3"></i> <a href="https://www.google.com/maps/place/%CE%91%CE%BD%CE%B1%CF%84%CE%BF%CE%BB%CE%B9%CE%BA%CE%AE%CF%82+%CE%98%CF%81%CE%AC%CE%BA%CE%B7%CF%82+154%CE%92,+%CE%98%CE%B5%CF%83%CF%83%CE%B1%CE%BB%CE%BF%CE%BD%CE%AF%CE%BA%CE%B7+544+53/@40.6063764,22.9708086,17z/data=!3m1!4b1!4m5!3m4!1s0x14a838c1129560d1:0x540fc758c04167cf!8m2!3d40.6063764!4d22.9729973" class="text-reset" target="_blank"> Ανατολικής Θράκης 154Β, 54453, Θεσσαλονική, Ελλάδα </a></p>
+					  <p>
+						<i class="fas fa-envelope me-3"></i>
+						<a href="mailto:dhspapa@yahoo.gr" class="text-reset" target="_blank">dhspapa@yahoo.gr</a>
+					  </p>
+					  <p><i class="fas fa-phone me-3"></i><a href="tel:+30-698-161-5739" class="text-reset" target="_blank"> + 30 698 161 5739</a></p>
+					  <!--<p><i class="fas fa-print me-3"></i> </p>-->
+					</div>
+					<!-- Grid column -->
+				  </div>
+				  <!-- Grid row -->
+				</div>
+			  </section>
+			  <!-- Section: Links  -->
+
+			  <!-- Copyright -->
+			  <div class="text-center p-4" >
+				<p>© 2021, StoreToHome</p>
+			  </div>
+			 <!-- Copyright -->
+			</footer>			
+		</div>
+		
+	</section>
+
+
+	
+
+	
+<!-- JQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <!-- Slick Carousel -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  
+
+  <script>
+	window.botpressWebChat.init({
+		host: 'https://botpresspapadopoulos.com',
+		botId: 'storetohome',
+		extraStylesheet: 'https://botpresspapadopoulos.com/assets/modules/channel-web/assets/infa-style.css'
+	  })
+</script>
+
+</body>
+</html>
+
+
+

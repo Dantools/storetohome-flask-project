@@ -1,0 +1,377 @@
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+  
+  
+  
+  
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .row, .navbar, .leftcolumn, .rightcolumn {   
+      flex-direction: column;
+    }
+  }
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 50px;
+    background: #f1f1f1;
+  }
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 60%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 40%;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+    padding: 30px;
+    margin-top: 30px;
+  }
+  
+  /* Clear floats after the columns */
+  
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  img {
+    vertical-align: middle;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .mySlides img{
+    width:400px;
+    height:350px;
+  }
+
+  .imgslider{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  
+@media screen and (max-width: 775px) {
+  
+  .mySlides img{
+    width:200px;
+    height:150px;
+  }
+}
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    top: 50%;
+    width: 50px;
+    height: 80px;
+    padding: 20px;
+    margin-top: 150px;
+    color: BLACK;
+    font-weight: bold;
+    font-size: 30px;
+    
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: BLACK;
+    font-size: 12px;
+    padding: 20px 10px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 5px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  #slideimg{
+    width: 8rem;
+    height: 4.5rem;
+  }
+
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 5px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }
+  p.round2 {
+    border: 5px ridge #4a4a00;
+    border-radius: 8px;
+    padding: 5px;  
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.editad{
+  display: flex;
+  flex-direction: column;
+}
+
+.editad input{
+  margin:5px;
+}
+
+.editad textarea{
+  margin:5px;
+}
+
+.st_agg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  align-items: center;
+}
+
+.st_agg form{
+  width:100%;
+}
+
+.st_agg table{
+  width: 100%;
+}
+.st_agg h3{
+  margin: 50px;
+}
+
+.collection{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top:15px;
+  
+}
+
+#img-cont{
+  margin-bottom: 100px;
+  
+}
+
+.slidebtn a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+.collection img{
+  width: 800px;
+  height: 80px;
+  padding:5px;
+}
+
+.slidebtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.prefooter{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#ee{
+  margin-left: 50%;
+}
+
+
+
+@media screen and (max-width: 715px) {
+
+  #ee{
+    margin:0px;
+  }
+}
+
+#alert{
+  margin-bottom: 300px;
+  margin-right: 150px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1370px) {
+#row{
+  flex-direction: column;
+}
+
+
+}
+
+@media screen and (max-width: 785px){
+  .btn-group{
+    margin-right: 30px;
+  }
+  .mySlides img{
+    margin-top:125px;
+  }
+}
+

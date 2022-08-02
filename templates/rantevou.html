@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='rantevou.css')}}">
+    <title>Document</title>
+</head>
+<body>
+      <div class="login-box">
+        <h2>Καταχωρήστε το ραντεβού σας</h2>
+        <form method="POST" action="/rantevou">
+          <div class="user-box">
+            <p style="color: white;">Ημερομηνία</p>
+            <input type="date" name="date" required="">
+          </div>
+          <div class="user-box">
+            <p style="color: white;">Ώρα</p>
+            <input type="time" name="time" required="">
+          </div>
+          <div class="user-box">
+            <input type="text" name="name" required="">
+            <label>Όνομα ενδιαφερόμενου</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="srname" required="">
+            <label>Επώνυμο ενδιαφερόμενου</label>
+          </div>
+          <div class="user-box">
+            <input type="tel" name="tel" required="">
+            <label>Τηλέφωνο</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="note" required="">
+            <label>Σημειώσεις</label>
+          </div>
+            
+          <input type="submit" value="ΚΑΤΑΧΩΡΗΣΗ ΡΑΝΤΕΒΟΥ"/>
+        </form>
+      </div>
+</body>
+</html>

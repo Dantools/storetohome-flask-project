@@ -1,0 +1,97 @@
+body{
+  background-image: url("https://img.freepik.com/free-vector/yellow-diagonal-geometric-striped-background-with-halftone-detailed_1409-1451.jpg?w=2000");
+  
+}
+.header {
+    padding: 1%;
+    text-align: center;
+    background: #ffcc00;
+    color: white;
+  }
+  
+  .navbar {
+    display: flex;
+    background-color: #0a0a0a;
+  }
+  
+  .navbar a {
+    color: #ffcc00;
+    padding: 15px 30px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .navbar a:hover {
+    background-color: #ffcc00;
+    color: black;
+    text-decoration: none;
+
+  }
+  .active {
+    background-color: #967902;
+  }
+  
+
+  .home{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-left:85%;
+    
+    text-align: center;
+  }
+ 
+
+  .io{
+    font-size: 50px;
+    color: #ffcc00;
+
+  }
+  .io:hover{
+    cursor: pointer;
+    color:#ffd60a;
+    opacity: 0.7;
+  }
+
+  .btn-group{
+    color: #ffcc00;
+    
+  }
+ 
+  .btn{
+    background-color: #0a0a0a;
+  }
+  .card a:hover{
+    text-decoration: none;
+  }
+
+#h3-contact h3 a{
+  text-decoration: none;
+}
+
+#h3-contact h3 a:hover{
+  color:#c7b704
+}
+ 
+@media screen and (max-width: 800px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
+
+
+#afm:hover{
+  cursor: pointer;
+}
+
+p{
+  font-family: 'Roboto Mono', monospace;
+}
+h4{
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 2px;
+}
+
+#form{
+  padding:50px;
+  box-shadow: 3px 3px olive, -1em 0 .4em olive;}
