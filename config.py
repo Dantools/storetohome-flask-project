@@ -1,5 +1,0 @@
-import os 
-
-S3_BUCKET='storetohome'
-S3_KEY='AKIA43LFJSXHSHJ276F5'
-S3_SECRET='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'
